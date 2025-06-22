@@ -1,0 +1,19 @@
+{
+    "name": "FlipSensei",
+    "version" : "1.0",
+    "manifest_version" : 3,
+    "description" : "First try at injecting javascript into a dynamic website",
+    "icons": {
+                "16": "images/FlipSenseiLogo-16.png",
+                "32": "images/FlipSenseiLogo-32.png",
+                "48": "images/FlipSenseiLogo-48.png",
+                "128": "images/FlipSenseiLogo-128.png"
+            },
+
+    "content_scripts" : [
+        {
+            "matches" : ["https://www.facebook.com/marketplace/ottawa/*"],
+            "js": ["scraper.js"]
+        }
+    ]
+}
