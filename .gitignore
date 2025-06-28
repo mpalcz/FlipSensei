@@ -82,6 +82,8 @@ jspm_packages/
 
 # Python Virtual Environment
 venv/
+*.venv/
+.env/
 
 # next.js build output
 .next
