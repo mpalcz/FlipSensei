@@ -9,11 +9,21 @@
                 "48": "images/FlipSenseiLogo-48.png",
                 "128": "images/FlipSenseiLogo-128.png"
             },
-
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.facebook.com/marketplace/*"
+    ],
     "content_scripts" : [
         {
             "matches" : ["https://www.facebook.com/marketplace/ottawa/*"],
             "js": ["scraper.js"]
         }
-    ]
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
 }
