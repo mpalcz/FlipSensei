@@ -1,13 +1,25 @@
-console.log("🔥 FlipSensei script injected 🔥");
+// Using event listener to scrape continuously
+
+const SELECTOR = "a[href^='/marketplace/item/']";
+let seen = new Set();
 
 
-// Since Facebook has multiple nested divs and dynamic class names, must find another way to scrape:
-setTimeout(() => {
-    const items = document.querySelectorAll("a[href^='/marketplace/item/']"); //Scrapes all the items with the a tag and corresponding href
-    console.log("Found ${items.length} items!") //prints amount of items scraped
-    items.forEach(el => {
+function logNew() {
+    document.querySelectorAll(SELECTOR).forEach(a => {
+        if (seen.has(a)) return;
+
+        seen.add(a);
         console.log("--------");
-        console.log(el.innerText);
-    })}, 3000);
+        console.log(a.innerText)
+    }
+    )
+}
 
-console.log("FlipSensei Script Loaded!");
+//Run once for initial scraping
+setTimeout(logNew, 2000);
+
+window.addEventListener("scroll", () => {
+    logNew();
+})
+
+//Idea for optimization: using Mutation Observer
