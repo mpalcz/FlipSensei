@@ -2,7 +2,7 @@
     "name": "FlipSensei",
     "version" : "1.0",
     "manifest_version" : 3,
-    "description" : "First try at injecting javascript into a dynamic website",
+    "description" : "First try at injecting javascript into a dynamic website - eventually advises on car flipping profitability",
     "icons": {
                 "16": "images/FlipSenseiLogo-16.png",
                 "32": "images/FlipSenseiLogo-32.png",
@@ -24,6 +24,10 @@
         }
     ],
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_title": "Start Car Flipping Scan!"
+    },
+    "background": {
+        "service_worker": "background.js"
     }
 }
