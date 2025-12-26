@@ -1,4 +1,4 @@
-# FlipSensei
+# FlipSensei (UNDER DEV)
 
 FlipSensei is a lightweight Chrome extension that scrapes listings from Facebook Marketplace and uses AI to assess whether an item is worth flipping.
 
