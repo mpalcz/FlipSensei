@@ -1,6 +1,6 @@
 # Contains ORM tables, relationships, indexes, constraints etc
 from sqlalchemy import Column, Integer, String, Float, DateTime, func
-from app.database import Base
+from ..database import Base
 
 class ListingDB(Base):
     __tablename__ = "CarListings"

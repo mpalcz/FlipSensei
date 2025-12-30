@@ -7,5 +7,6 @@ DATABASE_URL = "postgresql://flip_user:flip_user_password@localhost:5432/FlipSen
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+# Base ORM model for database table definition
 class Base(DeclarativeBase):
     pass

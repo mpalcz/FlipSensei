@@ -1,16 +1,15 @@
 # write heavy endpoint
 from fastapi import APIRouter, HTTPException
-from app.database import SessionLocal
-from app.schemas.listing import ScrapedData
-from app.schemas.recommendation import RecommendationResponse
-from app.tasks.comparables import process_comparables
-from app.utils.logging import logger
+from ..pydantic_schemas.listing import ScrapedData
+from ..pydantic_schemas.recommendation import RecommendationResponse
+from ..tasks.comparables import process_comparables
+from ..dependencies import get_database_session, Session, Depends
+from ..utils.logging import logger
 
 router = APIRouter(prefix="/api", tags=["scrape"])
 
 @router.post("/scrape", response_model=RecommendationResponse)
-async def scrape_data(data: ScrapedData):
-    db = SessionLocal()
+async def scrape_data(data: ScrapedData, db: Session = Depends(get_database_session)):
     try:
         db_listings = []
         for item in data.CarListings:
@@ -32,5 +31,3 @@ async def scrape_data(data: ScrapedData):
     except Exception:
         db.rollback()
         raise HTTPException(status_code=500, detail="Failed to store listings")
-    finally:
-        db.close()

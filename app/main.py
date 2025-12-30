@@ -169,8 +169,8 @@ if __name__ == "__main__":
 '''
 # New version
 from fastapi import FastAPI
-from app.routers import listings, scrape
-from app.database import engine, Base
+from .routers import listings, scrape
+from .database import engine, Base
 
 app = FastAPI()
 

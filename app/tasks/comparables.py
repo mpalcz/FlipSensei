@@ -1,9 +1,9 @@
 # background processing
 import random
-from app.database import SessionLocal
-from app.models.listing import ListingDB
-from app.celery_worker import celery
-from app.utils.logging import logger
+from ..database import SessionLocal
+from ..orm_models.listing import ListingDB
+from ..celery_worker import celery
+from ..utils.logging import logger
 
 @celery.task
 def process_comparables(listing_id: int):
@@ -16,7 +16,6 @@ def process_comparables(listing_id: int):
 
         modified_price = listing.price + max(random.randint(-2000, 2000), 0)
         # Selenium logic goes here
-
     except Exception as e:
         logger.error(str(e))
     finally:

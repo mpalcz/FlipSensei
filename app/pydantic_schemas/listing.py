@@ -2,7 +2,7 @@
 from pydantic import BaseModel, ConfigDict, field_validator
 from typing import List, Optional
 from datetime import datetime
-from app.models.listing import ListingDB
+from ..orm_models.listing import ListingDB
 
 def to_camel(string: str) -> str:
     parts = string.split('_')
