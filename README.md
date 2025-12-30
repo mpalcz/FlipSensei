@@ -28,4 +28,34 @@ FlipSensei injects a content script into Facebook Marketplace pages and monitors
 - AI comparison and price valuation in progress
 - Export and UI features planned for future updates
 
+## Project structure (currently)
+app/
+├── main.py                 # FastAPI app entry point
+│
+├── database.py             # engine, SessionLocal, Base
+│
+├── models/
+│   ├── __init__.py
+│   └── listing.py          # SQLAlchemy ORM models
+│
+├── schemas/
+│   ├── __init__.py
+│   ├── listing.py          # Pydantic models
+│   └── recommendation.py
+│
+├── routers/
+│   ├── __init__.py
+│   ├── listings.py         # GET /api/listings
+│   └── scrape.py           # POST /api/scrape
+│
+├── tasks/
+│   ├── __init__.py
+│   └── comparables.py      # Celery tasks
+│
+├── celery_worker.py        # Celery app definition
+│
+└── utils/
+    ├── __init__.py
+    └── logging.py          # logging config
+
 ---
