@@ -7,7 +7,5 @@ def get_database_session():
     db = SessionLocal()
     try:
         yield db
-    except Exception as e:
-        logger.error(str(e))
     finally:
         db.close()

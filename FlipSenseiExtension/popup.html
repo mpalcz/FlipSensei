@@ -1,2 +1,27 @@
 <!-- TO BE DEFINED LATER: make it like a button that runs the popup.js
  script which would send a message to the content script to parse listings-->
+<!DOCTYPE html>
+
+<style>
+  /* Spinning animation*/
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  #status.loading::before { 
+    content: '⏳ ';
+    display: inline-block; /* required for transformation (animation) */
+    animation: spin 1s linear infinite; 
+    }
+</style>
+
+<html>
+<head>
+  <title>Car Flipping Advisor</title>
+  <script src="popup.js"></script>
+</head>
+<body>
+  <button id="startParse">Start Parsing Listings</button>
+  <p id="status"></p>
+</body>
+</html>
